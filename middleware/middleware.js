@@ -7,7 +7,7 @@ const authmiddleware = (req, res, next) => {
     if(!token){
          res.send("Please Login")
     }else {
-        jwt.verify(token, process.env.MY_SECRET, (err, decoded)=>{
+        jwt.verify(token, process.env.SECRET, (err, decoded)=>{
             const {employeeId} = decoded
             req.employeeId = employeeId;
             if(decoded) {
